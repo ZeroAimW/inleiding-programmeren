@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Website</title>
+    <style>
+        /* Algemene stijlen */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Login pagina stijlen */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f5;
+        }
+
+        .login-box {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        .login-box h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .login-box form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+
+        .login-box form input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .login-box .button-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .login-box button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .login-box button[type="submit"] {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .login-box button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        .login-box button[type="button"] {
+            background-color: #ccc;
+            color: #333;
+        }
+
+        .login-box button[type="button"]:hover {
+            background-color: #999;
+        }
+
+        /* Website stijlen */
+        .hidden {
+            display: none;
+        }
+
+        .navbar {
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+
+        .navbar a:hover {
+            background-color: grey;
+            border-radius: 5px;
+        }
+
+        .FlexContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .FlexContainer img {
+            width: 300px;
+            height: auto;
+        }
+
+        h1 {
+            padding: 50px;
+        }
+
+        h2 {
+            padding: 5px;
+        }
+
+        /* Stijl voor de "Cool Cars IMO" titel */
+        .cool-title {
+            text-align: center;
+            font-size: 3rem;
+            color: #000000;
+            margin: 40px 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        /* Footer stijl */
+        .footer {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .footer-links li {
+            display: inline;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 5px 10px;
+        }
+
+        .footer-links a:hover {
+            background-color: grey;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Login pagina -->
+    <div class="login-container" id="loginPage">
+        <div class="login-box">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="text" id="username" placeholder="Username" required />
+                <input type="password" id="password" placeholder="Password" required />
+                <div class="button-container">
+                    <button type="submit">Login</button>
+                    <button type="button" onclick="cancelLogin()">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Website inhoud -->
+    <div id="websiteContent" class="hidden">
+        <!-- Navigatiebalk -->
+        <div class="navbar">
+            <a href="#homepage">Homepage</a>
+            <a href="#menu">Menu</a>
+            <a href="https://www.youtube.com/watch?v=gsLvizl5j4E" target="_blank">Cars</a>
+        </div>
+
+        <h1 class="cool-title">Cool Cars IMO</h1>
+        <div class="FlexContainer">
+            <img src="images/koeni.jpg" alt="Beschrijving van de foto">
+            <img src="images/rs6.jpg" alt="Beschrijving van de foto">
+            <img src="images/gt3.jpg" alt="Beschrijving van de foto">
+            <img src="images/b800.jpg" alt="Beschrijving van de foto">
+            <img src="images/pagani.jpg" alt="Beschrijving van de foto">
+            <img src="images/m3.jpg" alt="Beschrijving van de foto">
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Cool Cars IMO.</p>
+            <ul class="footer-links">
+                <li><a href="#homepage">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#cars">Cars</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script>
+        // Login functionaliteit
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault(); // Voorkom standaard formulierverzending
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Simpele login validatie (voor testdoeleinden)
+            if (username === 'admin' && password === 'wachtwoord') {
+                alert('Login successful!');
+                document.getElementById('loginPage').classList.add('hidden');
+                document.getElementById('websiteContent').classList.remove('hidden');
+            } else {
+                alert('Invalid username or password!');
+            }
+        });
+
+        function cancelLogin() {
+            // Reset formulier
+            document.getElementById('loginForm').reset();
+        }
+    </script>
+</body>
+
+</html>

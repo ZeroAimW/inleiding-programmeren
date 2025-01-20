@@ -1,0 +1,71 @@
+// de volgende code heb ik met chatgpt gedaan alleen de html page want ik had eerst een eigen maar die is weg had het waarschijnlijk niet opgeslagen
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Guesser</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Raad het getal!</h1>
+    <p>Probeer het getal te raden (tussen 1 en 10):</p>
+    <input type="number" id="guessInput" min="1" max="10" placeholder="Voer je gok in">
+    <button id="guessButton">Raad</button>
+    <div id="result"></div>
+
+    <script>
+        // Het te raden getal
+        const numberGuesser = 5;
+
+        // Haal de elementen op
+        const guessInput = document.getElementById('guessInput');
+        const guessButton = document.getElementById('guessButton');
+        const resultDiv = document.getElementById('result');
+
+        // Voeg een eventlistener toe aan de knop
+        guessButton.addEventListener('click', () => {
+            const userGuess = parseInt(guessInput.value, 10);
+
+            // Controleer of de invoer geldig is
+            if (isNaN(userGuess) || userGuess < 1 || userGuess > 10) {
+                resultDiv.textContent = "Voer een geldig getal in tussen 1 en 10!";
+                return;
+            }
+
+            // Controleer het geraden getal
+            if (userGuess === numberGuesser) {
+                resultDiv.textContent = "Gefeliciteerd! Je hebt het juiste getal geraden!";
+                resultDiv.style.color = "green";
+            } else if (userGuess > numberGuesser) {
+                resultDiv.textContent = "Het getal is lager. Probeer opnieuw.";
+                resultDiv.style.color = "orange";
+            } else {
+                resultDiv.textContent = "Het getal is hoger. Probeer opnieuw.";
+                resultDiv.style.color = "orange";
+            }
+        });
+    </script>
+</body>
+</html>
